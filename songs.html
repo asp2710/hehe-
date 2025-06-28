@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Songs That Remind Me of You 🎶</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('him-bg.jpg') no-repeat center center/cover;
+      background-attachment: fixed;
+      overflow: hidden;
+    }
+
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .try {
+      background-color: rgba(237, 144, 159, 0.65);
+      border-radius: 12px;
+      border: 2px solid #d13e9e;
+      height: 100%;
+      width:1080px;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #5f006a;
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+    }
+
+    .cassette-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .cassette {
+      width: 180px;
+      height: 180px;
+      background: url('cassette.png') no-repeat center center/contain;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .cassette:hover {
+      transform: scale(1.08) rotate(-2deg);
+    }
+
+    .label {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      color: #fff;
+      background: rgba(95, 0, 106, 0.8);
+      padding: 6px 8px;
+      border-radius: 12px;
+      width: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: white;
+      background: #6f33af;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .back-link:hover {
+      background: #532288;
+    }
+
+    @media (max-width: 600px) {
+      .cassette {
+        width: 140px;
+        height: 90px;
+      }
+
+      .label {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="try">
+      <h1>Songs That Remind Me of You 🎧💖</h1>
+
+      <div class="cassette-grid">
+        <a href="https://open.spotify.com/track/0fCQRUbk8LIQTdQYGNtGyv?si=O7r6brMuRGepTCiET2ZQTQ" target="_blank">
+          <div class="cassette"><div class="label">Tere Liye</div></div>
+        </a>
+        <a href="https://open.spotify.com/track/62wnQra2VgCUyHO3BUIAcr?si=W0n_m7VeSBaP0iNLEJIayQ" target="_blank">
+          <div class="cassette"><div class="label">Jannatein Kahan</div></div>
+        </a>
+        <a href="https://open.spotify.com/track/5F79ZdjOwGOhUKRHx94sr1?si=QCDcBFdnSoCdRm9WKHQ6Mw" target="_blank">
+          <div class="cassette"><div class="label">Dooriyan</div></div>
+        </a>
+        <a href="https://open.spotify.com/track/5AhxzlhZbKYfu4YNiUnmvx?si=snj0Xk5mTUKPhIqQ2NFvGg" target="_blank">
+          <div class="cassette"><div class="label">Jiya Lage Na</div></div>
+        </a>
+        <a href="https://open.spotify.com/track/6fOrdTNuSAM219wGYwZMaO?si=8rmUomgMRnm8rMuuKdfRHg" target="_blank">
+          <div class="cassette"><div class="label">Mera Pehla Pehla Pyaar</div></div>
+        </a>
+        <a href="https://open.spotify.com/track/44AyOl4qVkzS48vBsbNXaC?si=DvaMeR0_R8mJr66f6qg54g" target="_blank">
+          <div class="cassette"><div class="label">Can't Help Falling in Love</div></div>
+        </a>
+        <a href="https://open.spotify.com/track/3EFGRGsshk0NWidcXfhKvw?si=uraSB5XETBiHA6n-tGjRpQ" target="_blank">
+          <div class="cassette"><div class="label">Dil To Bachha Hai</div></div>
+        </a>
+        <a href="https://open.spotify.com/track/7kiZ6Zf66oX6yMovt3gC1a?si=HLNX3LRrSN2EPWHYMZ7Hgw" target="_blank">
+          <div class="cassette"><div class="label">Sajde</div></div>
+        </a>
+        <a href="https://open.spotify.com/track/0gPgdRfB4jdGrlyXS0Vx78?si=AmrJCilNQAOD9DhsrIX-Kw" target="_blank">
+          <div class="cassette"><div class="label">Khuda Jaane</div></div>
+        </a>
+        <a href="https://open.spotify.com/track/5S2wR82AFuNIbSsFzQ6o2e?si=9gM545Q2T-mFg4f-qEclng" target="_blank">
+          <div class="cassette"><div class="label">Shivesena(lol)</div></div>
+        </a>
+      </div>
+
+      <a href="index.html" class="back-link">← Back to Home</a> 
+    </div>
+  </div>
+</body>
+</html>

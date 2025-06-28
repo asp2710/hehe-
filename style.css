@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('him-bg.jpg') no-repeat center center/cover;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.35); /* Softer tint */
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+}
+
+
+
+
+.center-content {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 700px;
+  margin: auto;
+}
+
+
+h1 {
+  font-size: 3rem;
+  color: #5e005e;
+  margin-bottom: 10px;
+}
+
+.caption {
+  font-size: 1.2rem;
+  color: #9b2fae;
+  margin-bottom: 40px;
+}
+
+.button-circle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.button-circle button {
+  background: linear-gradient(180deg, #ff91cf, #3d2269);
+  border: none;
+  padding: 18px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+  animation: floaty 3s ease-in-out infinite;
+}
+@keyframes floaty {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.button-circle button:hover {
+  background-color: #e86ba0;
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}

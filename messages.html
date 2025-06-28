@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Messages 💌</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('him-bg.jpg') no-repeat center center/cover;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(6px);
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #5f006a;
+      font-size: 2.6rem;
+      margin-bottom: 30px;
+    }
+
+    .message-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .msg-card {
+      background-color: rgba(255, 255, 255, 0.85);
+      border: 2px solid #d13e9e;
+      border-radius: 15px;
+      padding: 20px 25px;
+      min-width: 250px;
+      max-width: 300px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 18px;
+      color: #5f006a;
+      box-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .msg-card:hover {
+      transform: scale(1.05);
+      background-color: rgba(255, 240, 245, 0.95);
+    }
+
+    .back-link {
+      margin-top: 35px;
+      text-decoration: none;
+      color: white;
+      background: #6f33af;
+      padding: 12px 28px;
+      border-radius: 25px;
+      font-size: 16px;
+    }
+
+    .back-link:hover {
+      background: #532288;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 500px;
+      text-align: center;
+      font-size: 17px;
+      color: #4a004a;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 22px;
+      color: #444;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Messages 💌</h1>
+
+    <div class="message-grid">
+      <!-- Message Cards -->
+      <div class="msg-card" onclick="showMessage('Tarun')">Tarun has sent you a message 💌</div>
+      <div class="msg-card" onclick="showMessage('Aarya')">Aarya has sent you a message 💌</div>
+      <div class="msg-card" onclick="showMessage('Nishad')">Nishad has sent you a message 💌</div>
+      <div class="msg-card" onclick="showMessage('Vedika')">Vedika has sent you a message 💌</div>
+      <div class="msg-card" onclick="showMessage('Akshat')">Akshat has sent you a message 💌</div>
+      <div class="msg-card" onclick="showMessage('Varun')">Varun has sent you a message 💌</div>
+      <div class="msg-card" onclick="showMessage('Navya')">Navya has sent you a message 💌</div>
+      <div class="msg-card" onclick="showMessage('Saurabh')">Saurabh has sent you a message 💌</div>
+      <div class="msg-card" onclick="showMessage('Hridayaa')">Hridayaa has sent you a message 💌</div>
+    </div>
+
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="messageModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2 id="senderName"></h2>
+      <p id="messageText">Message will appear here.</p>
+    </div>
+  </div>
+
+  <script>
+    const messages = {
+      Tarun: "Happy Birthday Lolu (Anuj)!...🎉Teri WhatsApp language itni famous ho gayi hai ki sab log ab tujh jaisa hi type karte hain! 😄Luck ho toh aap jaisa — practicals mein bina kisi tension ke sab smooth nikal jaata hai! 😉 Aur college shuru hote hi treat pakki — bina dahi puri ke party complete nahi hoti! 😋 Wishing you a year full of good vibes, success, and mastiyaan. Enjoy your day! 🥳🩷🤝",
+      Aarya: "happyy birthdayyy anujjj🥳🕺🏻 Masttt enjoy karnaa aaj ka din....Asawari itna mast kuch toh plan kari hai tere liye mast lucky hai tu.....Maza aata hai tere saath tp karne me ya billi ka photo bhejne me ya jo bhi....UK me apni itni baate nahi hui par fir bhi theeke jitni hui usme bhi maza aaya....mast dost hai tu aise hi rehna humeshaaa....bye byeee✨",
+      Nishad: "Happy Birthday Anuj bhadweeee…my first friend here who made so many moments fun….apna musical duo se lekar apne grp ke saath ke fun bakchod moments …har moment jisme tu hota bohot maza aata hai and ekdum bakchodi bhari rehti bhai aisa down lagta hi nahi tere around…. Perform karenge saathme firse ye do saalo me aur apan apni bakchodi chalu hi rakhenge….bakchodi nahi rukni chahiye. Love youuuu mere bhai. Happy birthday Xdddddd😘🥳🥳",
+      Vedika: "online chat se irl milne mai 2 saal lag gaye😂 can’t believe almost 4 saal ho gaye since ik u... haa maja hi aata terese baat karke… apni baate utni nai hoti but jab hoti hai toh extremes ekdam😂… majak se serious baate sab… acha banda hai tu… aise hi haste reh mauj masti mat rukana teri… aur jyada stress mat le…. Ik tu bahot crazzy karega kuch life mai. a very happy birthday to you 🥳🥳✨...(and i am very happy that my too bestest friends are together 🫶🏼🫶🏼)",
+      Akshat: "Lolu bhai, 2 saal ho gye apni bakchodi ko. A21 a351 bhaag ke pakadne se BEE ka lec bunk karke triple schezwan mangane tak bohot maje kiye hai apan ne aur bohot beti moments bhi hue hai dono ke . Abhi bhi app dev mein tere saath kaam karke maja aaya tha bhai. Usme bhi bohot ups and downs but we pulled it through. Plus apne woh har time same kapde pehen ke aane ke😂😂... Aur tere saath milke patil ko bhi pareshan karne maja aata hai bohot🤣🤣🤣🤣... Love you bhai always be like this, wishing you a happy 20th birthday lolu 😘❤🎉",
+      Varun: "Happy Birthday Anuj Bhaii🥳🎉May god bless you, aur tumhari khup pragati ho yahi aasha... Never give up on the things, you deserve it🤝... at the end, bauna fir bhi bauna hai, chahe parvat ke shikhar par khada ho, aur devta fir bhi devta chahe kuye ki gehrai me chhupa ho🥰😋",
+      Navya: "Happy Birthday Anuj 🥳🥂🤍 Anuj Lolam (kanchan ke awaj me 😂) the mukhiya of Lolu gang, the one who knows almost everyone in the college, the OG singer, jab bhi “tere liye” gaana bajta he hamesha teri yaad aati he. Glad that i came to the trip and got to witness your bewda dance 😂😂 (highlight of the trip) also photowalk was so fun with you. Stay the same, bohot saare gaane gaate reh and i wish ki next sem se tujhe 9 ptr me hi aaye. Enjoy your day 🧁                    ~navya 🥰",
+      Saurabh: "Happy birthday Loluuuuu 😍😘...maaza aata bhai tere saath bakchodi karne...Subhe college mai fir raath mai pubg full bakchodi karte apan..Aur teri hassi bc🤣🤣..Vo sunn kar to aur hassi aati..Aur ha party kabh dene wala hai saade...Wait karre humlog..",
+      Hridayaa: "Your heart is kind, your vibe is rare. Happy Birthday to the best! ❤️"
+    };
+
+    function showMessage(name) {
+      document.getElementById("senderName").innerText = name;
+      document.getElementById("messageText").innerText = messages[name];
+      document.getElementById("messageModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("messageModal").style.display = "none";
+    }
+  </script>
+</body>
+</html>

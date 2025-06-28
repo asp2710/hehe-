@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Us 📸</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('him-bg.jpg') no-repeat center center/cover;
+      background-attachment: fixed;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7); /* black overlay */
+      backdrop-filter: blur(6px);
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .try {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 16px;
+      padding: 30px;
+      width: 90%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 2.6rem;
+      margin-bottom: 30px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      justify-items: center;
+    }
+
+    .gallery img {
+      width: 100%;   /* ✅ Change this to adjust image size */
+      height: 100%;  /* ✅ Change this to adjust image size */
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .back-link {
+      margin-top: 30px;
+      text-decoration: none;
+      color: white;
+      background: #6f33af;
+      padding: 12px 28px;
+      border-radius: 25px;
+      font-size: 16px;
+    }
+
+    .back-link:hover {
+      background: #532288;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="try">
+      <h1>Us ❤️</h1>
+      <div class="gallery">
+        <img src="images/us1.jpg" alt="Us 1">
+        <img src="images/us2.jpg" alt="Us 2">
+        <img src="images/us3.jpg" alt="Us 3">
+        <img src="images/us4.jpg" alt="Us 4">
+        <img src="images/us5.jpg" alt="Us 5">
+        <img src="images/us6.jpg" alt="Us 6">
+        <img src="images/us7.jpg" alt="Us 7">
+        <img src="images/us8.jpg" alt="Us 8">
+        <img src="images/us9.jpg" alt="Us 9">
+        <img src="images/us10.jpg" alt="Us 10">
+        <img src="images/us11.jpg" alt="Us 11">
+        <img src="images/us12.jpg" alt="Us 12">
+      </div>
+
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>

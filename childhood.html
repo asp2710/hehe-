@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Childhood Memories 📼</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden; /* Prevent scrolling */
+      font-family: 'Segoe UI', sans-serif;
+      background: url('him-bg.jpg') no-repeat center center/cover;
+      background-attachment: fixed;
+    }
+
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(6px);
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    h1 {
+      text-align: center;
+      color: #5f006a;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      width: 40vw;
+      max-width: 600px;
+      aspect-ratio: 1308 / 736;
+    }
+
+    .camera-frame {
+      width: 100%;
+      height: 100%;
+      background: url('vintage-cam.jpg') no-repeat center center/contain;
+      background-size: contain;
+      position: relative;
+    }
+
+    .camera-video {
+      position: absolute;
+      top: 21.5%;
+      left: 4%;
+      width: 55%;
+      height: 73%;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #777;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2.5rem;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    .arrow:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .left-arrow {
+      left: 20px;
+    }
+
+    .right-arrow {
+      right: 20px;
+    }
+
+    .arrow.hidden {
+      display: none;
+    }
+
+    .caption-block {
+      margin-top: 20px;
+      background: rgba(103, 15, 87, 0.85);
+      padding: 15px 25px;
+      border-radius: 18px;
+      font-size: 16px;
+      color: #fcf7fc;
+      font-weight: 500;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .back-link {
+      margin-top: 20px;
+      text-decoration: none;
+      color: white;
+      background: #6f33af;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-size: 16px;
+    }
+
+    .back-link:hover {
+      background: #532288;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-wrapper {
+        width: 80vw;
+      }
+
+      .arrow {
+        font-size: 2rem;
+        padding: 10px 14px;
+      }
+
+      .caption-block {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Childhood Memories 📼</h1>
+
+    <div class="carousel-wrapper">
+      <div class="camera-frame">
+        <video id="childVid" class="camera-video" src="vid" controls playsinline></video>
+      </div>
+    </div>
+
+    <!-- Caption block -->
+    <div class="caption-block" id="captionText">👶 First Baby Steps</div>
+
+    <!-- Arrows -->
+    <button class="arrow left-arrow" id="leftBtn" onclick="changeSlide(-1)">&#8249;</button>
+    <button class="arrow right-arrow" id="rightBtn" onclick="changeSlide(1)">&#8250;</button>
+
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </div>
+
+  <script>
+  const videos = [
+    { src: "videos/c1.mp4", caption: "You will never be too old to cut a cake💖" },
+    { src: "videos/c2.mp4", caption: "Mai toh bachpan se hi singer hoon😎" },
+    { src: "videos/c3.mp4", caption: "Footagepaglu anuj🎀" },
+    { src: "videos/c4.mp4", caption: "Maanus aahe mumma toh?😂" },
+    { src: "videos/c5.mp4", caption: "Camera>>>Bappa😂" }
+  ];
+
+  let current = 0;
+
+  const videoTag = document.getElementById('childVid');
+  const caption = document.getElementById('captionText');
+  const leftBtn = document.getElementById('leftBtn');
+  const rightBtn = document.getElementById('rightBtn');
+
+  function updateSlide() {
+    videoTag.src = videos[current].src;
+    videoTag.load();
+    // Removed: videoTag.play();
+    caption.innerText = videos[current].caption;
+
+    leftBtn.classList.toggle('hidden', current === 0);
+    rightBtn.classList.toggle('hidden', current === videos.length - 1);
+  }
+
+  function changeSlide(direction) {
+    current += direction;
+    updateSlide();
+  }
+
+  updateSlide(); // Initial setup
+</script>
+
+</body>
+</html>
